@@ -10,14 +10,16 @@ The usual suspects are well known: wood-burning stoves, old diesel cars, industr
 
 So here is the question nobody has cleanly answered: **does grid-level decarbonization actually show up in Sofia's air quality (AQ), or is the signal completely buried under heating season and weather?**
 
-To answer it, we can't just plot energy mix against pollution and call it correlation. We have to control for the things that dominate — temperature, wind, the heating season — and then look at what's left. That remainder, if anything, belongs to the grid.
+This study uses observational data and regression techniques to identify statistical associations rather than causal effects.
+
+To answer it, we can't just plot energy mix against pollution and call it correlation. We have to control for the dominant drivers — temperature, wind, and heating demand — and then examine whether the energy mix retains a measurable association with PM10 after these factors are accounted for.
 
 We will:
 1. Collect and merge three independent data sources: EEA station-level PM10 measurements, Ember's monthly electricity generation data for Bulgaria (sourced from Eurostat and ENTSO-E), and ERA5 meteorological reanalysis via Open-Meteo
 2. Explore the data and establish the seasonal and meteorological structure of Sofia's PM10 exceedances
 3. Build a multiple linear regression model with heating season, wind speed, temperature, and lignite generation share as predictors
 4. Quantify the partial effect of the energy mix after controlling for the dominant confounders
-5. Cross-validate findings using a Random Forest model and compare feature importances
+5. Use a Random Forest model as a non-linear benchmark to compare feature importance patterns
 6. Interpret the result honestly — including if the grid signal doesn't survive the controls
 
 ---
